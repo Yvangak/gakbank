@@ -1,4 +1,4 @@
-package rw.gakbank.corebanking.controller.model;
+package rw.gakbank.corebanking.model;
 
 public enum AccountStatus {
     REQUESTED,

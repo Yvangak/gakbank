@@ -1,4 +1,4 @@
-package rw.gakbank.corebanking.controller.Exceptions;
+package rw.gakbank.corebanking.Exceptions;
 
 public class InsufficientBalanceException extends RuntimeException {
 

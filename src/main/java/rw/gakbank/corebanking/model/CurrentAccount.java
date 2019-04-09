@@ -1,6 +1,6 @@
-package rw.gakbank.corebanking.controller.model;
+package rw.gakbank.corebanking.model;
 
-import rw.gakbank.corebanking.controller.Exceptions.InsufficientBalanceException;
+import rw.gakbank.corebanking.Exceptions.InsufficientBalanceException;
 
 import java.time.LocalDate;
 

@@ -1,8 +1,8 @@
-package rw.gakbank.corebanking.controller.model;
+package rw.gakbank.corebanking.model;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
-import rw.gakbank.corebanking.controller.Exceptions.InsufficientBalanceException;
+import rw.gakbank.corebanking.Exceptions.InsufficientBalanceException;
 
 import java.text.DecimalFormat;
 import java.time.LocalDate;

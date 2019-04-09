@@ -1,8 +1,8 @@
-package rw.gakbank.corebanking.controller.model;
+package rw.gakbank.corebanking.model;
 
 import org.junit.Before;
 import org.junit.Test;
-import rw.gakbank.corebanking.controller.Exceptions.InsufficientBalanceException;
+import rw.gakbank.corebanking.Exceptions.InsufficientBalanceException;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
