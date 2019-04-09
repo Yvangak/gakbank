@@ -1,7 +1,5 @@
 package rw.gakbank.corebanking.model;
 
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
 import rw.gakbank.corebanking.Exceptions.InsufficientBalanceException;
 
 import java.text.DecimalFormat;
@@ -10,9 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-@Document(collection = "accounts")
 public class Account {
-    @Id
     private String id;
     private String accountNo;
     private double balance;

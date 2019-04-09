@@ -113,4 +113,16 @@ public class Customer {
         return Objects.hash(firstName, lastName, address, contact, registeredOn, accountList);
     }
 
+    @Override
+    public String toString() {
+        return "Customer{" +
+                "id='" + id + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", address=" + address +
+                ", contact=" + contact +
+                ", registeredOn=" + registeredOn +
+                ", accountList=" + accountList +
+                '}';
+    }
 }
