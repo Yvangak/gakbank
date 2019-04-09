@@ -13,13 +13,21 @@ import static org.junit.Assert.*;
 public class AccountTest {
 
     private Account account;
+    private Account currentAccount;
+    private Account savingAccount;
     private Transaction transaction;
     private Transaction transactionWithHigherAmount;
+    private Transaction transactionOnCurrentAccount;
 
     @Before
     public void setUp() {
         account = new Account("78000012", 2000.20, AccountStatus.OPENED,
                 LocalDate.now());
+        currentAccount = new CurrentAccount("78000012", 2000.20, AccountStatus.OPENED,
+                LocalDate.now(), 1000.00);
+        savingAccount = new SavingsAccount("78000012", 2000.20, AccountStatus.OPENED,
+                LocalDate.now(), 15.00);
+
 
         transaction = new Transaction("TR0001", 10, LocalDateTime.now(),
                 "description", TransactionType.DEPOSIT, TransactionStatus.PENDING);
@@ -27,6 +35,8 @@ public class AccountTest {
         transactionWithHigherAmount = new Transaction("TR0002", 3000.20, LocalDateTime.now(),
                 "description", TransactionType.DEPOSIT, TransactionStatus.PENDING);
 
+        transactionOnCurrentAccount = new Transaction("TR0001", 2500.20, LocalDateTime.now(),
+                "description", TransactionType.DEPOSIT, TransactionStatus.PENDING);
     }
 
     @Test
@@ -86,5 +96,26 @@ public class AccountTest {
     public void should_format_the_balance() {
         assertThat(account.getFormattedBalance(), is("2,000.20"));
         assertNotEquals(account.getFormattedBalance(), "2000.20");
+    }
+
+    @Test
+    public void givenCurrentAccountAndTransaction_shouldWithdrawWhenValidTransactionAmount() {
+        assertNull(currentAccount.getTransactions());
+
+        currentAccount.withdraw(transactionOnCurrentAccount);
+
+        assertEquals(currentAccount.getBalance(), -500.00, 0.01);
+        assertTrue(currentAccount.getTransactions().contains(transactionOnCurrentAccount));
+    }
+
+    @Test(expected = InsufficientBalanceException.class)
+    public void givenCurrentAccountAndTransactionWithAmountBiggerThanTheSumOfBalanceAndOverdraft_should_throwException() {
+        account.withdraw(transactionWithHigherAmount);
+    }
+
+    @Test
+    public void givenAccount_shouldComputeTheInterest() {
+        assertEquals(savingAccount.computeInterest(), savingAccount.getBalance() * 0.15, 0.0);
+        assertEquals(currentAccount.computeInterest(), 0.0, 0.0);
     }
 }

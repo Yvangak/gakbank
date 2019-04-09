@@ -6,6 +6,11 @@ public class SavingsAccount extends Account {
 
     private double interestRate;
 
+    @Override
+    public double computeInterest() {
+        return super.getBalance() * interestRate / 100;
+    }
+
     public SavingsAccount() {
     }
 
@@ -14,10 +19,6 @@ public class SavingsAccount extends Account {
         this.interestRate = interestRate;
     }
 
-    @Override
-    public double computeInterest() {
-        return super.getBalance() * interestRate / 100;
-    }
 
     public double getInterestRate() {
         return interestRate;
