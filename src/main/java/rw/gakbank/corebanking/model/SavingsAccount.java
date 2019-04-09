@@ -1,7 +1,12 @@
 package rw.gakbank.corebanking.model;
 
+import org.springframework.data.annotation.TypeAlias;
+import org.springframework.data.mongodb.core.mapping.Document;
+
 import java.time.LocalDate;
 
+@Document(collection = "accounts")
+@TypeAlias("SAVINGS_ACCOUNT")
 public class SavingsAccount extends Account {
 
     private double interestRate;

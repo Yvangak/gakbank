@@ -1,9 +1,13 @@
 package rw.gakbank.corebanking.model;
 
+import org.springframework.data.annotation.TypeAlias;
+import org.springframework.data.mongodb.core.mapping.Document;
 import rw.gakbank.corebanking.Exceptions.InsufficientBalanceException;
 
 import java.time.LocalDate;
 
+@Document(collection = "accounts")
+@TypeAlias("CURRENT_ACCOUNT")
 public class CurrentAccount extends Account {
 
     private double overDraft;

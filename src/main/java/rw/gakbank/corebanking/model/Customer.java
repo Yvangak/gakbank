@@ -11,7 +11,7 @@ import java.util.Objects;
 @Document
 public class Customer {
     @Id
-    private long id;
+    private String id;
     private String firstName;
     private String lastName;
     private Address address;
@@ -35,8 +35,6 @@ public class Customer {
     public Customer() {
     }
 
-    ;
-
     public Customer(String firstName, String lastName, Address address, Contact contact, LocalDate registeredOn) {
         this.firstName = firstName;
         this.lastName = lastName;
@@ -45,12 +43,8 @@ public class Customer {
         this.registeredOn = registeredOn;
     }
 
-    public long getId() {
+    public String getId() {
         return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
     }
 
     public String getFirstName() {

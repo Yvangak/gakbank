@@ -10,10 +10,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-@Document
+@Document(collection = "accounts")
 public class Account {
     @Id
-    private long id;
+    private String id;
     private String accountNo;
     private double balance;
     private List<Transaction> transactions;
@@ -68,12 +68,8 @@ public class Account {
         return 0.0;
     }
 
-    public long getId() {
+    public String getId() {
         return id;
-    }
-
-    public void SetId(long id) {
-        this.id = id;
     }
 
     public String getAccountNo() {
