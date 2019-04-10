@@ -108,9 +108,24 @@ public class AccountTest {
         assertTrue(currentAccount.getTransactions().contains(transactionOnCurrentAccount));
     }
 
-    @Test(expected = InsufficientBalanceException.class)
+    @Test
     public void givenCurrentAccountAndTransactionWithAmountBiggerThanTheSumOfBalanceAndOverdraft_should_throwException() {
-        account.withdraw(transactionWithHigherAmount);
+        try {
+            currentAccount.withdraw(transactionWithHigherAmount);
+        } catch (InsufficientBalanceException i) {
+            assertEquals(i.getMessage(), "Insufficient Balance in the Current account");
+            assertTrue(currentAccount.getTransactions().contains(transactionWithHigherAmount));
+        }
+    }
+
+    @Test
+    public void givenAccountAndTransactionWithAmountBiggerThanTheSumOfBalanceAndOverdraft_should_throwException() {
+        try {
+            account.withdraw(transactionWithHigherAmount);
+        } catch (InsufficientBalanceException i) {
+            assertEquals(i.getMessage(), "Insufficient Balance in the Account");
+            assertTrue(account.getTransactions().contains(transactionWithHigherAmount));
+        }
     }
 
     @Test

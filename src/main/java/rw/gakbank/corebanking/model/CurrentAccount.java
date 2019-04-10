@@ -31,7 +31,7 @@ public class CurrentAccount extends Account {
         } else {
             transaction.updateStatus(TransactionStatus.CANCELED);
             addTransaction(transaction);
-            throw new InsufficientBalanceException("Insufficient Balance in the account");
+            throw new InsufficientBalanceException("Insufficient Balance in the Current account");
         }
     }
 
