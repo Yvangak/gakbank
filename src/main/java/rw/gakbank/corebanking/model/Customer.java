@@ -3,6 +3,8 @@ package rw.gakbank.corebanking.model;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -12,9 +14,13 @@ import java.util.Objects;
 public class Customer {
     @Id
     private String id;
+    @NotNull(message = "First Name cannot be null")
     private String firstName;
+    @NotNull(message = "Last Name cannot be null")
     private String lastName;
+    @Valid
     private Address address;
+    @Valid
     private Contact contact;
     private LocalDate registeredOn;
     private List<Account> accountList;

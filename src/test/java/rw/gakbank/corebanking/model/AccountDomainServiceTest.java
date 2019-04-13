@@ -1,9 +1,7 @@
 package rw.gakbank.corebanking.model;
 
 import org.junit.Before;
-import org.junit.Rule;
 import org.junit.Test;
-import org.junit.rules.ExpectedException;
 import rw.gakbank.corebanking.Exceptions.InsufficientBalanceException;
 import rw.gakbank.corebanking.Exceptions.SameAccountException;
 
@@ -21,9 +19,6 @@ public class AccountDomainServiceTest {
     private AccountDomainService accountDomainService;
     private Transaction transaction;
 
-    @Rule
-    public ExpectedException exceptionRule;
-
     @Before
     public void setUp() {
         accountDomainService = new AccountDomainService();
@@ -33,7 +28,6 @@ public class AccountDomainServiceTest {
                 LocalDate.now());
         transaction = new Transaction("TR0001", 3000.00, LocalDateTime.now(),
                 "description", TransactionType.TRANSFER, TransactionStatus.PENDING);
-        exceptionRule = ExpectedException.none();
     }
 
     @Test

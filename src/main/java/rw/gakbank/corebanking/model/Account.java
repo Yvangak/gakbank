@@ -1,5 +1,6 @@
 package rw.gakbank.corebanking.model;
 
+import org.springframework.data.mongodb.core.mapping.Document;
 import rw.gakbank.corebanking.Exceptions.InsufficientBalanceException;
 
 import java.text.DecimalFormat;
@@ -8,8 +9,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+@Document
 public class Account {
-    private String id;
     private String accountNo;
     private double balance;
     private List<Transaction> transactions;
@@ -62,10 +63,6 @@ public class Account {
 
     public double computeInterest() {
         return 0.0;
-    }
-
-    public String getId() {
-        return id;
     }
 
     public String getAccountNo() {

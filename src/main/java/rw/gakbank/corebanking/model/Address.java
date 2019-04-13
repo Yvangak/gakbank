@@ -1,11 +1,16 @@
 package rw.gakbank.corebanking.model;
 
+import javax.validation.constraints.NotNull;
 import java.util.Objects;
 
 public class Address {
+    @NotNull(message = "State should not be null")
     private String state;
+    @NotNull(message = "City should not be null")
     private String city;
+    @NotNull(message = "Zip should not be null")
     private String zip;
+    @NotNull(message = "ApartmentNo should not be null")
     private String apartmentNo;
 
     public Address(String state, String city, String zip, String apartmentNo) {

@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.RestController;
 public class AccountController {
 
     @GetMapping(value = "{id}")
-    public ResponseEntity<?> getAccount(@PathVariable long id) {
+    public ResponseEntity<?> getAccount(@PathVariable String id) {
         System.out.println("reached >>>>>>");
-        return new ResponseEntity<>("Account", HttpStatus.OK);
+        return new ResponseEntity<>("Account" + id, HttpStatus.OK);
     }
 }
